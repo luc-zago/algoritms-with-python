@@ -8,7 +8,7 @@ def check_values(values):
 def study_schedule(permanence_periods, target_time):
     """Faça o código aqui."""
     students = 0
-    if target_time is None:
+    if target_time is None or permanence_periods is None:
         return None
     for period in permanence_periods:
         if not check_values(period):

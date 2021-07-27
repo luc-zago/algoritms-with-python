@@ -1,40 +1,21 @@
-def merge_sort(data):
-    if len(data) <= 1:
-        return
+def insertion_sort(arr):
 
-    mid = len(data) // 2
-    left_data = data[:mid]
-    right_data = data[mid:]
+    for i in range(1, len(arr)):
 
-    merge_sort(left_data)
-    merge_sort(right_data)
+        key = arr[i]
 
-    left_index = 0
-    right_index = 0
-    data_index = 0
-
-    while left_index < len(left_data) and right_index < len(right_data):
-        if left_data[left_index] < right_data[right_index]:
-            data[data_index] = left_data[left_index]
-            left_index += 1
-        else:
-            data[data_index] = right_data[right_index]
-            right_index += 1
-        data_index += 1
-
-        if left_index < len(left_data):
-            del data[data_index:]
-            data += left_data[left_index:]
-        elif right_index < len(right_data):
-            del data[data_index:]
-            data += right_data[right_index:]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
 
 
 def is_anagram(first_string, second_string):
     """Faça o código aqui."""
     first_string, second_string = list(first_string), list(second_string)
-    merge_sort(first_string)
-    merge_sort(second_string)
+    insertion_sort(first_string)
+    insertion_sort(second_string)
     if first_string == second_string:
         return True
     return False

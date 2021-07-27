@@ -1,4 +1,6 @@
 def quick_sort(inlist):
+    # algoritmo retirado do Stack Overflow
+    # https://stackoverflow.com/questions/3855537/fastest-way-to-sort-in-python
     if inlist == []:
         return []
     else:
